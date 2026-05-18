@@ -188,6 +188,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('myblogs')
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { loadAll() }, [])
 
   const loadAll = () => {
@@ -400,6 +401,7 @@ const ProfileEdit = ({ user }) => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     API.get('/auth/profile/' + user.id).then(res => {
       const u = res.data.user

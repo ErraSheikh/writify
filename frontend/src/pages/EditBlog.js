@@ -46,6 +46,18 @@ const EditBlog = () => {
   const [tagsFocused, setTagsFocused] = useState(false)
   const [dragOver, setDragOver] = useState(false)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+    API.get('/blogs/' + id).then((res) => {
+        const blog = res.data.blog
+        if (blog.author?._id?.toString() !== user?.id) { navigate('/'); return }
+        setTitle(blog.title)
+        setContent(blog.content)
+        setThumbnailPreview(blog.thumbnail || '')
+        setCategory(blog.category || 'General')
+        setTags(blog.tags?.join(', ') || '')
+    })
+}, [id])
   useEffect(() => {
     API.get('/blogs/' + id).then((res) => {
       const blog = res.data.blog
@@ -266,14 +278,14 @@ const EditBlog = () => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 style={{
-                  width: '100%', padding: '13px 40px 13px 18px',
-                  fontSize: '14px', fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 600,
-                  border: '2px solid var(--border)', borderRadius: '10px',
-                  outline: 'none', background: 'white', color: 'var(--ink)',
-                  cursor: 'pointer', appearance: 'none', boxSizing: 'border-box',
-                  color: catColors[category] || 'var(--ink)',
-                }}>
+    width: '100%', padding: '13px 40px 13px 18px',
+    fontSize: '14px', fontFamily: "'DM Sans', sans-serif",
+    fontWeight: 600,
+    border: '2px solid var(--border)', borderRadius: '10px',
+    outline: 'none', background: 'white',
+    cursor: 'pointer', appearance: 'none', boxSizing: 'border-box',
+    color: catColors[category] || 'var(--ink)',
+}}>
                 {categories.map((cat) => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}

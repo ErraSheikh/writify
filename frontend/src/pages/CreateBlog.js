@@ -32,7 +32,7 @@ const CreateBlog = () => {
 
   const [title, setTitle]                   = useState('')
   const [content, setContent]               = useState('')
-  const [thumbnail, setThumbnail]           = useState('')
+  const [thumbnail]           = useState('')
   const [thumbnailFile, setThumbnailFile]   = useState(null)
   const [thumbnailPreview, setThumbnailPreview] = useState('')
   const [category, setCategory]             = useState('General')
