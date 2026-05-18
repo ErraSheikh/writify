@@ -35,10 +35,20 @@ app.get('/', (req, res) => {
 //     console.log('Connection failed', err)
 // })
 
+// mongoose.connect(process.env.MONGO_URI).then(() => {
+//     console.log('MongoDB connected')
+//     const PORT = process.env.PORT || 5000
+//     app.listen(PORT, () => {
+//         console.log('Server started on port ' + PORT)
+//     })
+// }).catch((err) => {
+//     console.log('Connection failed', err)
+// })
+
 mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log('MongoDB connected')
     const PORT = process.env.PORT || 5000
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
         console.log('Server started on port ' + PORT)
     })
 }).catch((err) => {
