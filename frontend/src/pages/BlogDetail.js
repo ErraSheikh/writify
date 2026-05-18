@@ -34,6 +34,7 @@ const BlogDetail = () => {
   const [commentLoading, setCommentLoading] = useState(false)
   const [commentFocused, setCommentFocused] = useState(false)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     loadBlog()
     loadComments()
