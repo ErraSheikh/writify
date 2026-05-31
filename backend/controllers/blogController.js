@@ -37,6 +37,8 @@ const getBlogById = async (req, res) => {
     }
 
     blog.views = blog.views + 1
+
+    
     await blog.save()
 
     res.status(200).json({blog})

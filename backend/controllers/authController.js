@@ -71,7 +71,8 @@ const loginUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
     const users = await User.find().select('-password')
-    res.status(200).json({count: users.length, users})
+    res.status(200).json({count: users.length,
+         users})
 }
 
 const deleteUser = async (req, res) => {
