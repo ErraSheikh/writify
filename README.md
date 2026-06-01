@@ -275,4 +275,8 @@ This allowed successful frontend deployment.
 
 ## Author
 
+Erra Sheikh
+
+BS Computer Science Student
+
 Developed as a MERN Stack Web Development Project using MongoDB, Express.js, React.js, and Node.js.
